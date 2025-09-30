@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const supabaseUrl = 'https://uckpskfadylgxdofdhhk.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVja3Bza2ZhZHlsZ3hkb2ZkaGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyNTk5NzMsImV4cCI6MjA3NDgzNTk3M30.3sOX1vDxmZYsgI6_h8Lop7LUquy3dkRzWd8d5pg5nQU';
