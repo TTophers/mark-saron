@@ -16,17 +16,18 @@ contactForm.addEventListener('submit', async (e) => {
 
   if (!name || !email || !message) return;
 
-  // 3️⃣ Insert into Supabase table
-  const { data, error } = await supabase
-    .from('contacts') // replace with your table name
-    .insert([{ name, email, message }]);
+  try {
+    const { data, error } = await supabase
+      .from('contacts')
+      .insert([{ name, email, message }]);
 
-  if (error) {
-    console.error('Error submitting form:', error);
-    alert('There was a problem sending your message. Please try again.');
-  } else {
+    if (error) throw error;
+
     alert('Message sent successfully!');
     contactForm.reset();
+  } catch (err) {
+    console.error('Error submitting form:', err);
+    alert('Something went wrong. Please try again later.');
   }
 });
 
