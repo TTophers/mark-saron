@@ -1,0 +1,56 @@
+.dropdown-menu {
+  display: block; /* keep it in the flow */
+  opacity: 0;
+  pointer-events: none;
+ transition: opacity 0.2s ease;
+}
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu {
+    display: none;
+}
+.mobile-menu.active {
+    display: block;
+}
+.mobile-dropdown-menu {
+    display: none;
+}
+.mobile-dropdown.active .mobile-dropdown-menu {
+    display: block;
+}
+@keyframes marquee {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+    display: flex;
+    animation: marquee 25s linear infinite;
+     width: max-content;
+}
+#bannerCarousel::-webkit-scrollbar {
+  display: none;
+}
+#bannerCarousel {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* PDF */
+#pdf-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  overflow-x: auto;
+}
+#pdf-container canvas {
+  display: block;
+  margin: 1rem auto;
+}
+@media (min-width: 1000px) and (max-width: 1230px) {
+  .nav-container {
+    padding-left: 1rem; /* smaller left padding */
+    padding-right: 1rem; /* smaller right padding */
+  }
+}
