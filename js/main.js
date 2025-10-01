@@ -1,39 +1,82 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const supabaseUrl = 'https://uckpskfadylgxdofdhhk.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVja3Bza2ZhZHlsZ3hkb2ZkaGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyNTk5NzMsImV4cCI6MjA3NDgzNTk3M30.3sOX1vDxmZYsgI6_h8Lop7LUquy3dkRzWd8d5pg5nQU';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVja3Bza2ZhZHlsZ3hkb2ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyNTk5NzMsImV4cCI6MjA3NDgzNTk3M30.3sOX1vDxmZYsgI6_h8Lop7LUquy3dkRzWd8d5pg5nQU';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
 
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const name = contactForm.name.value.trim();
-  const email = contactForm.email.value.trim();
-  const message = contactForm.message.value.trim();
+    const name = contactForm.name.value.trim();
+    const email = contactForm.email.value.trim();
+    const message = contactForm.message.value.trim();
 
-  if (!name || !email || !message) return;
+    if (!name || !email || !message) return;
 
-  try {
-    const { data, error } = await supabase
-      .from('contacts')
-      .insert([{ name, email, message }]);
+    try {
+      const { data, error } = await supabase
+        .from('contacts')
+        .insert([{ name, email, message }]);
 
-    if (error) throw error;
+      if (error) throw error;
 
-    alert('Message sent successfully!');
-    contactForm.reset();
-  } catch (err) {
-    console.error('Error submitting form:', err);
-    alert('Something went wrong. Please try again later.');
+      alert('Message sent successfully!');
+      contactForm.reset();
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      alert('Something went wrong. Please try again later.');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const desktopTabs = document.querySelectorAll('.tab-btn');
+  const mobileTabs = document.querySelectorAll('.tab-btn-mobile');
+  const allTabs = [...desktopTabs, ...mobileTabs];
+  const allContents = document.querySelectorAll('.tab-content');
+
+  function switchTab(tabId) {
+    // Hide all contents
+    allContents.forEach(c => c.classList.add('hidden'));
+
+    // Show selected content
+    const selected = document.getElementById(tabId);
+    if (selected) selected.classList.remove('hidden');
+
+    // Update all tabs
+    allTabs.forEach(btn => {
+      const btnTab = btn.dataset.tab;
+      const isActive = btnTab === tabId;
+
+      if (isActive) {
+        // Active tab classes
+        btn.classList.add('bg-gold-accent', 'text-background');
+        btn.classList.remove('bg-transparent', 'bg-muted', 'text-foreground');
+      } else {
+        // Inactive tab classes
+        btn.classList.remove('bg-gold-accent', 'text-background');
+        if (btn.classList.contains('tab-btn')) {
+          btn.classList.add('bg-transparent', 'hover:bg-border', 'text-foreground');
+          btn.classList.remove('bg-muted');
+        } else {
+          btn.classList.add('bg-muted', 'hover:bg-border', 'text-foreground');
+          btn.classList.remove('bg-transparent');
+        }
+      }
+    });
   }
+
+  // Attach click listeners
+  allTabs.forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+
+  // Initialize first tab
+  switchTab('second-mortgages');
 });
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -102,6 +145,25 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(autoRotate);
     autoRotate = setInterval(nextSlide, autoRotateTime);
   }
+  function scrollToSlide(i) {
+    index = i;
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+    updateCounter();
+  
+    // Fade in overlay and content for the active slide
+    slides.forEach((slide, idx) => {
+      const overlay = slide.querySelector('div.absolute.bg-black\\/30');
+      const content = slide.querySelector('div.relative.z-20');
+  
+      if (idx === index) {
+        overlay && overlay.classList.replace('opacity-0', 'opacity-100');
+        content && content.classList.replace('opacity-0', 'opacity-100');
+      } else {
+        overlay && overlay.classList.replace('opacity-100', 'opacity-0');
+        content && content.classList.replace('opacity-100', 'opacity-0');
+      }
+    });
+  }
 
   // ---- Run code ----
   startAutoRotate();
@@ -124,96 +186,13 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollToSlide(0);
 });
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.worker.min.js";
 
-  // Load PDF
-  pdfjsLib.getDocument(pdfUrl).promise.then(doc => {
-    pdfDoc = doc;
-    totalPages = doc.numPages;
+const openPdfBtn = document.getElementById("open-pdf-btn");
 
-    for (let i = 1; i <= totalPages; i++) {
-      doc.getPage(i).then(page => {
-        const viewport = page.getViewport({ scale: 0.8 });
-        const canvas = document.createElement("canvas");
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        canvas.classList.add("snap-center", "flex-shrink-0", "cursor-pointer", "hover:scale-60", "transition-transform", "rounded");
-        carousel.appendChild(canvas);
+// PDF URL
+const pdfUrl = "./content/pdfs/REcolorado.pdf";
 
-        page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise.then(() => {
-          // Click to open fullscreen
-          canvas.addEventListener("click", () => {
-            currentIndex = i - 1;
-            openModal(currentIndex);
-          });
-        });
-      });
-    }
-  }).catch(err => console.error("PDF error:", err));
-
-  // --- Drag-to-scroll ---
-  carousel.addEventListener("mousedown", e => {
-    isDragging = true;
-    carousel.classList.add("cursor-grabbing");
-    startX = e.pageX - carousel.offsetLeft;
-    scrollStart = carousel.scrollLeft;
-  });
-  carousel.addEventListener("mousemove", e => {
-    if (!isDragging) return;
-    const x = e.pageX - carousel.offsetLeft;
-    carousel.scrollLeft = scrollStart - (x - startX) * dragMultiplier;
-  });
-  carousel.addEventListener("mouseup", () => { isDragging = false; carousel.classList.remove("cursor-grabbing"); });
-  carousel.addEventListener("mouseleave", () => { isDragging = false; carousel.classList.remove("cursor-grabbing"); });
-
-  // Touch support
-  carousel.addEventListener("touchstart", e => {
-    isDragging = true;
-    startX = e.touches[0].pageX - carousel.offsetLeft;
-    scrollStart = carousel.scrollLeft;
-  });
-  carousel.addEventListener("touchmove", e => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - carousel.offsetLeft;
-    carousel.scrollLeft = scrollStart - (x - startX) * dragMultiplier;
-  });
-  carousel.addEventListener("touchend", () => { isDragging = false; });
-
-  // --- Fullscreen modal ---
-  function openModal(index) {
-    modal.classList.remove("hidden");
-    renderModalPage(index);
-  }
-
-  function closeModal() {
-    modal.classList.add("hidden");
-  }
-
-  function renderModalPage(index) {
-    pdfDoc.getPage(index + 1).then(page => {
-      const viewport = page.getViewport({ scale: 2 }); // higher resolution for fullscreen
-      modalCanvas.width = viewport.width;
-      modalCanvas.height = viewport.height;
-      page.render({ canvasContext: modalCtx, viewport });
-    });
-  }
-
-  btnClose.addEventListener("click", closeModal);
-  btnNext.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % totalPages;
-    renderModalPage(currentIndex);
-  });
-  btnPrev.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + totalPages) % totalPages;
-    renderModalPage(currentIndex);
-  });
-
-  // Keyboard support
-  document.addEventListener("keydown", (e) => {
-    if (modal.classList.contains("hidden")) return;
-    if (e.key === "ArrowRight") { currentIndex = (currentIndex + 1) % totalPages; renderModalPage(currentIndex); }
-    if (e.key === "ArrowLeft") { currentIndex = (currentIndex - 1 + totalPages) % totalPages; renderModalPage(currentIndex); }
-    if (e.key === "Escape") closeModal();
-  });
-
-
+openPdfBtn.addEventListener("click", () => {
+  // Open PDF in a new browser tab
+  window.open(pdfUrl, "_blank");
+});
