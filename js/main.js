@@ -112,16 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
 document.addEventListener("DOMContentLoaded", () => {
   const carousel = document.getElementById("bannerCarousel");
   const slides = Array.from(carousel.children);
   const totalSlides = slides.length;
   const counter = document.getElementById("slideCounter");
+  const playPauseBtn = document.getElementById("playPauseBtn");
 
   let index = 0;
   const autoRotateTime = 6000;
   let autoRotate = null;
+  let playing = true; // track play/pause state
 
   function updateCounter() {
     counter.textContent = `${index + 1}/${totalSlides}`;
@@ -131,6 +132,20 @@ document.addEventListener("DOMContentLoaded", () => {
     index = i;
     carousel.style.transform = `translateX(-${index * 100}%)`;
     updateCounter();
+
+    // Fade in overlay and content for the active slide
+    slides.forEach((slide, idx) => {
+      const overlay = slide.querySelector('div.absolute.bg-black\\/30');
+      const content = slide.querySelector('div.relative.z-20');
+
+      if (idx === index) {
+        overlay && overlay.classList.replace('opacity-0', 'opacity-100');
+        content && content.classList.replace('opacity-0', 'opacity-100');
+      } else {
+        overlay && overlay.classList.replace('opacity-100', 'opacity-0');
+        content && content.classList.replace('opacity-100', 'opacity-0');
+      }
+    });
   }
 
   function nextSlide() {
@@ -145,28 +160,14 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(autoRotate);
     autoRotate = setInterval(nextSlide, autoRotateTime);
   }
-  function scrollToSlide(i) {
-    index = i;
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-    updateCounter();
-  
-    // Fade in overlay and content for the active slide
-    slides.forEach((slide, idx) => {
-      const overlay = slide.querySelector('div.absolute.bg-black\\/30');
-      const content = slide.querySelector('div.relative.z-20');
-  
-      if (idx === index) {
-        overlay && overlay.classList.replace('opacity-0', 'opacity-100');
-        content && content.classList.replace('opacity-0', 'opacity-100');
-      } else {
-        overlay && overlay.classList.replace('opacity-100', 'opacity-0');
-        content && content.classList.replace('opacity-100', 'opacity-0');
-      }
-    });
+
+  function stopAutoRotate() {
+    clearInterval(autoRotate);
   }
 
   // ---- Run code ----
   startAutoRotate();
+  scrollToSlide(0);
 
   const nextBtn = document.getElementById("nextBtn");
   const prevBtn = document.getElementById("prevBtn");
@@ -174,16 +175,28 @@ document.addEventListener("DOMContentLoaded", () => {
   if (nextBtn && prevBtn) {
     nextBtn.addEventListener("click", () => {
       nextSlide();
-      startAutoRotate();
+      if (playing) startAutoRotate();
     });
 
     prevBtn.addEventListener("click", () => {
       prevSlide();
-      startAutoRotate();
+      if (playing) startAutoRotate();
     });
   }
 
-  scrollToSlide(0);
+  // Play/Pause toggle
+  if (playPauseBtn) {
+    playPauseBtn.addEventListener("click", () => {
+      if (playing) {
+        stopAutoRotate();
+        playPauseBtn.textContent = "▶ Play";
+      } else {
+        startAutoRotate();
+        playPauseBtn.textContent = "⏸ Pause";
+      }
+      playing = !playing;
+    });
+  }
 });
 
 
