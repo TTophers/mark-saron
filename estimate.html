@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Current Rates / Featured Homes</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/tailwind-config.js"></script>
-  <link href="css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark - Your Dedicated Realtor | Find Your Dream Home</title>
+    <meta name="description" content="Professional realtor Mark Saron helps you find the perfect property. Expert real estate services for buying and selling homes with personalized attention." />
+    <meta name="author" content="Mark - Professional Realtor" />
+    
+    <meta property="og:title" content="Mark Saron - Your Dedicated Realtor | Find Your Dream Home" />
+    <meta property="og:description" content="Professional realtor Mark helps you find the perfect property. Expert real estate services for buying and selling homes with personalized attention." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https:/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Mark!!!!!!!!                    !!!                      !!!!!!!!!" />
+    <meta name="twitter:image" content="https:/" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
+
 
 
 
@@ -57,7 +69,7 @@
         <!-- Other nav items -->
         <a href="/aboutme.html" class="text-foreground hover:text-warm-accent transition-colors">About</a>
         <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Contact</a>
- 
+        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Sell your Home</a>
         <div class="dropdown relative">
           <button class="flex items-center text-foreground hover:text-warm-accent transition-colors">
             Services
@@ -165,52 +177,26 @@
 
 </div>
 
-<section class="py-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    
-    <!-- Hero Content -->
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
-      Sell Your Home Smarter – For Just 1.25% Commission!
-    </h1>
-    <p class="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
-      Why pay more when you can get full-service real estate marketing and representation for less? 
-      With my proven approach, you’ll keep more of your hard-earned equity while still getting top-notch results.
-    </p>
-    <a href="/contact-sellhome.html">
-      <button class="mt-4 px-8 py-4 bg-gold-accent text-black font-semibold rounded-2xl hover:bg-gold-accent-dark transition-all text-lg">
-        Get Started
-      </button>
-    </a>
+<main class="min-h-screen flex items-center justify-center py-12">
+  <div class="max-w-2xl w-full p-8 bg-gray-900/60 rounded-2xl shadow-xl">
+    <h1 class="text-2xl font-bold mb-4">One more step — confirm your address</h1>
+    <p class="text-gray-300 mb-6">We’ll use this to fetch an approximate estimate. You’ll enter name & phone next.</p>
 
-    <!-- Features Grid -->
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">Sell for Top Dollar</p>
-        <p class="text-gray-400 text-sm sm:text-base">Proven strategies to ensure your home sells at the highest possible value.</p>
+    <div id="addressPreview" class="mb-6 p-4 bg-muted rounded-lg text-sm text-foreground"></div>
+
+    <form id="contactStepForm" class="space-y-4">
+      <input id="name" type="text" name="name" placeholder="Your Full Name" required class="w-full p-3 rounded-lg bg-muted" />
+      <input id="phone" type="tel" name="phone" placeholder="Phone (e.g. 303-555-1234)" required class="w-full p-3 rounded-lg bg-muted" />
+      <div class="flex gap-4">
+        <button type="submit" class="flex-1 bg-gold-accent text-black font-semibold py-3 rounded-lg">Get Estimate</button>
+        <button id="backBtn" type="button" class="flex-1 bg-background text-primary-foreground py-3 rounded-lg">Edit Address</button>
       </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">Maximize Your Net Proceeds</p>
-        <p class="text-gray-400 text-sm sm:text-base">More money stays where it belongs: in your pocket.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">📸 Professional Photography</p>
-        <p class="text-gray-400 text-sm sm:text-base">Showcase your home at its best with professional marketing included.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">🌐 Maximum Online Exposure</p>
-        <p class="text-gray-400 text-sm sm:text-base">Featured on Zillow, Realtor.com, MLS for top visibility.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">🏡 Expert Pricing Strategy</p>
-        <p class="text-gray-400 text-sm sm:text-base">Attract serious buyers and sell faster.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition hidden lg:flex">
-        <p class="text-lg font-semibold mb-2 text-white">🤝 Full-Service Representation</p>
-        <p class="text-gray-400 text-sm sm:text-base">Negotiations, contracts, and closing handled for you.</p>
-      </div>
-    </div>
+    </form>
+
+    <div id="estimateResult" class="mt-6 hidden p-4 bg-gray-800 rounded-lg text-gray-200"></div>
   </div>
-</section>
+</main>
+
 
 
 

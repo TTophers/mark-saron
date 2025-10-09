@@ -48,6 +48,7 @@
       <!-- Desktop Links -->
       <div class="hidden lg:flex items-center space-x-8 flex-nowrap">
         <a href="/index.html" class="text-foreground hover:text-warm-accent transition-colors">Home</a>
+
   
         <div class="dropdown relative">
           <button class="flex items-center text-foreground flex-1 hover:text-warm-accent transition-colors">
@@ -65,10 +66,6 @@
           </div>
         </div>
 
-        <!-- Other nav items -->
-        <a href="/aboutme.html" class="text-foreground hover:text-warm-accent transition-colors">About</a>
-        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Contact</a>
-        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Sell your Home</a>
         <div class="dropdown relative">
           <button class="flex items-center text-foreground hover:text-warm-accent transition-colors">
             Services
@@ -78,6 +75,7 @@
           </button>
           <div class="dropdown-menu absolute top-full right-0 w-48 bg-background border border-border shadow-lg rounded-md">
             <a href="/qoute-home.html" class="block px-4 py-2 hover:bg-nav-hover hover:text-background">Get Quote</a>
+            <a href="/contact-sellhome.html" class="block px-4 py-2 hover:bg-nav-hover hover:text-background">Sell Your Home</a>
             <a href="https://milehighhomegroup.net/home-valuation" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -87,6 +85,8 @@
             <a href="/MLSpage.html" class="block px-4 py-2 hover:bg-nav-hover hover:text-background">Search for Home</a>
           </div>
         </div>
+        <a href="/aboutme.html" class="text-foreground hover:text-warm-accent transition-colors">About</a>
+        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Contact</a>
       </div>
   
       <!-- Mobile Buttons -->
@@ -127,6 +127,7 @@
         </button>
         <div class="mobile-dropdown-menu pl-4 space-y-2 mt-2 hidden">
           <a href="/qoute-home.html" class="block text-muted-foreground hover:text-primary transition-colors py-1">Get Quote</a>
+          <a href="/contact-sellhome.html" class="block text-muted-foreground hover:text-primary transition-colors py-1">Sell Your Home</a>
           <a href="https://milehighhomegroup.net/home-valuation" 
    target="_blank" 
    rel="noopener noreferrer"
@@ -178,11 +179,6 @@
     </div>
   </div>
 
-  <!-- Loan Button -->
-  <a href="https://2680830.my1003app.com/2493942/register" target="_blank"
-     class="mt-2 sm:mt-0 flex-shrink-0 bg-gold-accent text-gray-800 py-2 px-4 text-sm sm:text-base text-center font-semibold shadow-md hover:shadow-lg transition-all duration-300 rounded-lg">
-    Apply for a Loan Today!
-  </a>
 
 </div>
 
@@ -194,9 +190,8 @@
 
     <!-- Carousel slides -->
     <div id="bannerCarousel" class="flex gap-0 transition-all duration-500 ">
-
       <!-- Card 1 -->
-      <div class="carousel-card relative h-[450px] sm:h-[450px] lg:h-[600px] rounded-xl shadow-lg p-10 text-center min-w-full h-64 flex flex-col justify-between select-none overflow-hidden">
+      <div class="carousel-card relative h-[450px] sm:h-[650px] lg:h-[600px] rounded-xl shadow-lg p-10 min-w-full flex flex-col justify-between select-none overflow-hidden text-left">
         <!-- Video -->
         <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline poster="/content/imgs/poster-1.png">
           <source src="/content/videos/bannerVid1-small.mp4" type="video/mp4">
@@ -205,15 +200,18 @@
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-700 z-10"></div>
         <!-- Content -->
-        <div class="relative z-20 text-white opacity-0 transition-opacity duration-700 flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold mb-2">Current Rates</h3>
-          <p class="text-base mb-4">Conventional 15-Year Fix – As Low as 5.125%.</p>
-          <a href="https://www.sunnyhillfinancial.com"
-          target="_blank">
-            <button draggable="false" class="mt-2 px-6 py-2 bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
-              Learn More
-            </button>
-          </a>
+        <div class="relative z-20 text-white opacity-0 transition-opacity duration-700 flex flex-col items-start justify-center h-full">
+          <h3 class="text-2xl md:text-3xl lg:text-6xl font-bold mb-2">5.125% (5.334 APR) - 30 Year Fixed Loan*</h3>
+          <p class="text-base md:text-lg lg:text-2xl mb-4">APR stands for Annual Percentage Rate
+            The interest rate viewing may change or not be available at the time of loan commitment or lock-in
+            500k Loan amount, .63 points, last updated 9/24/2025, Up to 100% LTV, 720 FICO, Single Family, 90210, Primary Residence only 30 day lock</p>
+          <div class="flex justify-center w-full">
+            <a href="https://www.sunnyhillfinancial.com" target="_blank">
+              <button draggable="false" class="mt-2 px-6 py-2 md:px-8 md:py-3 lg:px-10 lg:py-4 text-sm md:text-base lg:text-2xl bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
+                Learn More
+              </button>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -228,10 +226,10 @@
         <div class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-700 z-10"></div>
         <!-- Content -->
         <div class="relative z-20 text-white opacity-0 transition-opacity duration-700 flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold mb-2">Market Watch</h3>
-          <p class="text-base mb-4">every month 2025 Denver Housing Report.</p>
+          <h3 class="text-2xl md:text-3xl lg:text-6xl font-bold mb-2">Market Watch</h3>
+          <p class="text-base md:text-lg lg:text-2xl mb-4">September 2025 Denver Housing Report.</p>
           <a href="https://recolorado.com">
-            <button draggable="false" class="mt-2 px-6 py-2 bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
+            <button draggable="false" class="mt-2 px-6 py-2 md:px-8 md:py-3 lg:px-10 lg:py-4 text-sm md:text-base lg:text-2xl bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
               Learn More
             </button>
           </a>
@@ -249,10 +247,10 @@
         <div class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-700 z-10"></div>
         <!-- Content -->
         <div class="relative z-20 text-white opacity-0 transition-opacity duration-700 flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold mb-2">Get Market Estimation</h3>
-          <p class="text-base mb-4">Get in contact with us to get an estimation</p>
+          <h3 class="text-2xl md:text-3xl lg:text-6xl font-bold mb-2">Get Market Estimation</h3>
+          <p class="text-base md:text-lg lg:text-2xl mb-4">Get in contact with us to get an estimation</p>
           <a href="https://example.com">
-            <button draggable="false" class="mt-2 px-6 py-2 bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
+            <button draggable="false" class="mt-2 px-6 py-2 md:px-8 md:py-3 lg:px-10 lg:py-4 text-sm md:text-base lg:text-2xl bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
               Learn More
             </button>
           </a>
@@ -270,11 +268,11 @@
         <div class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-700 z-10"></div>
         <!-- Content -->
         <div class="relative z-20 text-white opacity-0 transition-opacity duration-700 flex flex-col items-center justify-center h-full">
-          <h3 class="text-2xl font-bold mb-2">Find your Dream Home</h3>
-          <p class="text-base mb-4">Search homes across Colorado and start your journey.</p>
-          <a href="/MLSpage.html">
-            <button draggable="false" class="mt-2 px-6 py-2 bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
-              Learn More
+          <h3 class="text-2xl md:text-3xl lg:text-6xl font-bold mb-2">Full Boutique Realty service at fraction of cost </h3>
+          <p class="text-base mb-4">Sell Your Home Smarter – For Just 1.25% Commission!</p>
+          <a href="/Sell-your-home.html">
+            <button draggable="false" class="mt-2 px-6 py-2 md:px-8 md:py-3 lg:px-10 lg:py-4 text-sm md:text-base lg:text-2xl bg-foreground/90 text-black rounded-lg font-semibold hover:bg-muted transition">
+              Get Started
             </button>
           </a>
         </div>
@@ -295,6 +293,21 @@ class="absolute bottom-16 lg:bottom-20 left-4 bg-black/50 text-white px-3 py-1 r
 ⏸ Pause
 </button>
 
+
+<!-- Floating Apply for Loan Button (Top Right) -->
+<div class="absolute top-6 right-6 z-30">
+  <!-- Overlay behind button -->
+  <div class="absolute inset-0 bg-black/50 rounded-2xl blur-sm"></div>
+  <a href="https://2680830.my1003app.com/2493942/register" target="_blank" class="relative z-20">
+    <button draggable="false"
+            class=" px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 text-base md:text-lg lg:text-xl font-bold 
+                   bg-gold-accent text-black rounded-2xl 
+                   shadow-lg hover:shadow-8xl 
+                   transition-all duration-300">
+      Apply for a Loan Today!
+    </button>
+  </a>
+</div>
   </div> <!-- End carousel container -->
 </section>
 

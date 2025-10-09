@@ -2,7 +2,7 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const supabaseUrl = 'https://uckpskfadylgxdofdhhk.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVja3Bza2ZhZHlsZ3hkb2ZkaGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyNTk5NzMsImV4cCI6MjA3NDgzNTk3M30.3sOX1vDxmZYsgI6_h8Lop7LUquy3dkRzWd8d5pg5nQU';
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
 const contactForm = document.getElementById('contactForm');
 
@@ -31,6 +31,68 @@ if (contactForm) {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const currentPath = window.location.pathname.toLowerCase();
+  if (!currentPath.endsWith('estimate.html') && !currentPath.includes('estimate.html')) return; // make sure it runs regardless of path or capitalization
+
+
+  if (!supabaseClient) {
+    console.error("Failed to initialize Supabase client");
+    return;
+  }
+
+  try {
+    const preview = document.getElementById('addressPreview');
+    const form = document.getElementById('contactStepForm');
+    const resultBox = document.getElementById('estimateResult');
+
+    const address = sessionStorage.getItem('lead_address') || '';
+    console.log("Estimate script running, address:", address);
+
+    if (preview) {
+      preview.innerHTML = address || '<em>No address entered.</em>';
+    } else {
+      console.error("addressPreview element not found in DOM");
+    }
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.location.href = '/contact-sellhome.html';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if (!name || !phone) return alert('Please enter name and phone.');
+
+      const payload = {
+        address,
+        name,
+        phone,
+      };
+
+      resultBox.classList.remove('hidden');
+      resultBox.textContent = 'Submitting...';
+
+      try {
+        const { data, error } = await supabaseClient
+          .from('leads')
+          .insert([payload]);
+
+        if (error) throw error;
+
+        resultBox.innerHTML = '<strong>Thanks! Your info was submitted.</strong><br/>We will contact you shortly.';
+        sessionStorage.removeItem('lead_address');
+
+      } catch (err) {
+        resultBox.innerHTML = '<div class="text-red-400">Error submitting: ' + (err.message || err) + '</div>';
+      }
+    });
+  } catch (err) {
+    console.error("Error in estimate page script:", err);
+  }
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   const desktopTabs = document.querySelectorAll('.tab-btn');

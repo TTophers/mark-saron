@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Current Rates / Featured Homes</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/tailwind-config.js"></script>
-  <link href="css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark - Your Dedicated Realtor | Find Your Dream Home</title>
+    <meta name="description" content="Professional realtor Mark Saron helps you find the perfect property. Expert real estate services for buying and selling homes with personalized attention." />
+    <meta name="author" content="Mark - Professional Realtor" />
+    
+    <meta property="og:title" content="Mark Saron - Your Dedicated Realtor | Find Your Dream Home" />
+    <meta property="og:description" content="Professional realtor Mark helps you find the perfect property. Expert real estate services for buying and selling homes with personalized attention." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https:/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Mark!!!!!!!!                    !!!                      !!!!!!!!!" />
+    <meta name="twitter:image" content="https:/" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
 
 
 
@@ -57,7 +68,7 @@
         <!-- Other nav items -->
         <a href="/aboutme.html" class="text-foreground hover:text-warm-accent transition-colors">About</a>
         <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Contact</a>
- 
+        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Sell your Home</a>
         <div class="dropdown relative">
           <button class="flex items-center text-foreground hover:text-warm-accent transition-colors">
             Services
@@ -164,56 +175,52 @@
   </a>
 
 </div>
+<!-- Step 1: Ask only for address -->
+<section class="py-16 bg-hero-gradient">
+  <div class="container mx-auto px-6 max-w-lg">
+    <h2 class="text-3xl font-bold text-foreground mb-6">Enter Your Property Address</h2>
+    <p class="text-silver mb-6">Start by entering the address you want an estimate for. We'll ask contact details next.</p>
 
-<section class="py-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    
-    <!-- Hero Content -->
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
-      Sell Your Home Smarter – For Just 1.25% Commission!
-    </h1>
-    <p class="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
-      Why pay more when you can get full-service real estate marketing and representation for less? 
-      With my proven approach, you’ll keep more of your hard-earned equity while still getting top-notch results.
-    </p>
-    <a href="/contact-sellhome.html">
-      <button class="mt-4 px-8 py-4 bg-gold-accent text-black font-semibold rounded-2xl hover:bg-gold-accent-dark transition-all text-lg">
-        Get Started
-      </button>
-    </a>
+    <form id="addressForm" class="space-y-4">
+      <input
+        id="addressInput"
+        type="text"
+        name="address"
+        placeholder="1234 S Example St, Aurora, CO 80015"
+        required
+        class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary bg-muted text-foreground"
+      />
 
-    <!-- Features Grid -->
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">Sell for Top Dollar</p>
-        <p class="text-gray-400 text-sm sm:text-base">Proven strategies to ensure your home sells at the highest possible value.</p>
+      <div class="flex gap-4">
+        <button
+          type="submit"
+          class="flex-1 bg-gold-accent text-black font-semibold py-3 rounded-lg transition-colors"
+        >
+          Continue
+        </button>
+
+        <button id="skipButton" type="button" class="flex-1 bg-background text-primary-foreground py-3 rounded-lg transition-colors">
+          Skip & Contact
+        </button>
       </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">Maximize Your Net Proceeds</p>
-        <p class="text-gray-400 text-sm sm:text-base">More money stays where it belongs: in your pocket.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">📸 Professional Photography</p>
-        <p class="text-gray-400 text-sm sm:text-base">Showcase your home at its best with professional marketing included.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">🌐 Maximum Online Exposure</p>
-        <p class="text-gray-400 text-sm sm:text-base">Featured on Zillow, Realtor.com, MLS for top visibility.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-        <p class="text-lg font-semibold mb-2 text-white">🏡 Expert Pricing Strategy</p>
-        <p class="text-gray-400 text-sm sm:text-base">Attract serious buyers and sell faster.</p>
-      </div>
-      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition hidden lg:flex">
-        <p class="text-lg font-semibold mb-2 text-white">🤝 Full-Service Representation</p>
-        <p class="text-gray-400 text-sm sm:text-base">Negotiations, contracts, and closing handled for you.</p>
-      </div>
-    </div>
+    </form>
   </div>
 </section>
 
-
-
+<script>
+document.getElementById('addressForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // prevent page reload
+  const addressInput = document.getElementById('addressInput').value.trim();
+  if (!addressInput) {
+    alert('Please enter an address.');
+    return;
+  }
+  // Save to sessionStorage
+  sessionStorage.setItem('lead_address', addressInput);
+  // Redirect to next step
+  window.location.href = '/estimate.html';
+});
+</script>
 
 <footer class="bg-gray-900 text-white w-full">
   <!-- Main Footer Content -->
