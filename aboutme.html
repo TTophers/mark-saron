@@ -48,6 +48,7 @@
       <!-- Desktop Links -->
       <div class="hidden lg:flex items-center space-x-8 flex-nowrap">
         <a href="/index.html" class="text-foreground hover:text-warm-accent transition-colors">Home</a>
+
   
         <div class="dropdown relative">
           <button class="flex items-center text-foreground flex-1 hover:text-warm-accent transition-colors">
@@ -65,10 +66,6 @@
           </div>
         </div>
 
-        <!-- Other nav items -->
-        <a href="/aboutme.html" class="text-foreground hover:text-warm-accent transition-colors">About</a>
-        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Contact</a>
-        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Sell your Home</a>
         <div class="dropdown relative">
           <button class="flex items-center text-foreground hover:text-warm-accent transition-colors">
             Services
@@ -78,10 +75,18 @@
           </button>
           <div class="dropdown-menu absolute top-full right-0 w-48 bg-background border border-border shadow-lg rounded-md">
             <a href="/qoute-home.html" class="block px-4 py-2 hover:bg-nav-hover hover:text-background">Get Quote</a>
-            <a href="/home-valuation.html" class="block px-4 py-2 hover:bg-nav-hover hover:text-background">Home Valuation</a>
+            <a href="/Sell-your-home.html" class="block px-4 py-2 hover:bg-nav-hover hover:text-background">Sell Your Home</a>
+            <a href="https://milehighhomegroup.net/home-valuation" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="block px-4 py-2 hover:bg-nav-hover hover:text-background">
+           Home Valuation
+         </a>
             <a href="/MLSpage.html" class="block px-4 py-2 hover:bg-nav-hover hover:text-background">Search for Home</a>
           </div>
         </div>
+        <a href="/aboutme.html" class="text-foreground hover:text-warm-accent transition-colors">About</a>
+        <a href="/contact.html" class="text-foreground hover:text-warm-accent transition-colors">Contact</a>
       </div>
   
       <!-- Mobile Buttons -->
@@ -112,7 +117,7 @@
     <div class="space-y-4">
       <a href="/index.html" class="block text-foreground hover:text-primary transition-colors py-2">Home</a>
       <a href="/contact.html" class="block text-foreground hover:text-primary transition-colors py-2">Contact</a>
-      <a href="/contact.html" class="block text-foreground hover:text-primary transition-colors py-2">Sell your Home</a>
+
       <div class="mobile-dropdown">
         <button class="mobile-dropdown-button flex items-center justify-between w-full text-foreground hover:text-primary transition-colors py-2">
           Services
@@ -122,7 +127,13 @@
         </button>
         <div class="mobile-dropdown-menu pl-4 space-y-2 mt-2 hidden">
           <a href="/qoute-home.html" class="block text-muted-foreground hover:text-primary transition-colors py-1">Get Quote</a>
-          <a href="/home-valuation.html" class="block text-muted-foreground hover:text-primary transition-colors py-1">Home Valuation</a>
+          <a href="/Sell-your-home.html" class="block text-muted-foreground hover:text-primary transition-colors py-1">Sell Your Home</a>
+          <a href="https://milehighhomegroup.net/home-valuation" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="block text-muted-foreground hover:text-primary transition-colors py-1">
+          Home Valuation
+       </a>
           <a href="/MLSpage.html" class="block text-muted-foreground hover:text-primary transition-colors py-1">Search for Home</a>
         </div>
       </div>
@@ -177,12 +188,121 @@
 </div>
 
 
+<!-- About Me Section -->
+<section class="py-16 bg-background text-foreground">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    
+    <!-- Left: Image -->
+    <div class="relative group">
+      <img 
+        src="content/imgs/agent-photo.jpg" 
+        alt="Your Name, Real Estate Agent" 
+        class="rounded-2xl shadow-2xl object-cover w-full h-[450px] border border-border transition-transform duration-500 group-hover:scale-105"
+      >
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
+    </div>
+
+    <!-- Right: Text Content -->
+    <div>
+      <h1 class="text-4xl font-extrabold text-gold-accent mb-4">About Me</h1>
+      <p class="text-lg leading-relaxed text-gray-300 mb-6">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere, eros vel tincidunt tincidunt, 
+        justo sapien porttitor libero, non euismod velit neque in ante. Curabitur egestas, tortor nec 
+        sagittis faucibus, velit risus condimentum turpis, ut blandit mi sapien ut erat.
+      </p>
+      <p class="text-gray-400 leading-relaxed mb-8">
+        Integer vel lorem nec turpis fermentum mattis. Sed vitae odio ac nisi aliquam lacinia at sit amet enim. 
+        Nulla facilisi. Quisque non feugiat justo, at porttitor libero. 
+      </p>
+      <a href="/contact.html" class="inline-block px-8 py-3 bg-gold-accent text-black font-semibold rounded-xl hover:bg-gold-accent-dark transition-all duration-300">
+        Contact Me
+      </a>
+    </div>
+  </div>
+</section>
 
 
+<!-- Philosophy / Mission Section -->
+<section class="py-16 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-100">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6 text-gold-accent">My Philosophy</h2>
+    <p class="max-w-3xl mx-auto text-gray-300 leading-relaxed mb-10">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu magna hendrerit tincidunt. 
+      Integer et lectus vitae justo aliquam feugiat. My focus is always on providing transparency, trust, and 
+      results for every client I represent.
+    </p>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-background/70 p-6 rounded-xl border border-border shadow-lg hover:shadow-gold-accent/20 transition">
+        <h3 class="text-xl font-semibold mb-2 text-gold-accent">Honesty</h3>
+        <p class="text-gray-400">Building lasting relationships through integrity and clear communication.</p>
+      </div>
+      <div class="bg-background/70 p-6 rounded-xl border border-border shadow-lg hover:shadow-gold-accent/20 transition">
+        <h3 class="text-xl font-semibold mb-2 text-gold-accent">Dedication</h3>
+        <p class="text-gray-400">I go above and beyond to ensure my clients’ goals become reality.</p>
+      </div>
+      <div class="bg-background/70 p-6 rounded-xl border border-border shadow-lg hover:shadow-gold-accent/20 transition">
+        <h3 class="text-xl font-semibold mb-2 text-gold-accent">Expertise</h3>
+        <p class="text-gray-400">Years of experience and deep market insight to guide every decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
+<!-- Testimonials Section -->
 
- 
+<section class="py-16 bg-secondary">
+  <div class="container mx-auto px-6">
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-foreground">Don't Just Take It From Us</h2>
+      <p class="text-silver mt-2">See what our clients have to say about working with us.</p>
+    </div>
+
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- Testimonial Card -->
+          <div class="bg-muted rounded-2xl shadow-lg p-6 flex flex-col space-y-4 hover:shadow-2xl transition-shadow duration-500">
+            <p class="text-text-warm italic">"Mark helped us find our dream home faster than we imagined! She was professional, knowledgeable, and truly cared about our needs."</p>
+            <div class="flex items-center gap-4 mt-auto">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client Photo" class="w-12 h-12 rounded-full object-cover">
+              <div>
+                <p class="font-semibold text-text-warm">Sarah M.</p>
+                <p class="text-sm text-silver">Littleton, CO</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Testimonial Card -->
+          <div class="bg-muted rounded-2xl shadow-lg p-6 flex flex-col space-y-4 hover:shadow-2xl transition-shadow duration-500">
+            <p class="text-text-warm italic">"Working with Mark was a pleasure! She guided us through every step and made the process smooth and stress-free."</p>
+            <div class="flex items-center gap-4 mt-auto">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client Photo" class="w-12 h-12 rounded-full object-cover">
+              <div>
+                <p class="font-semibold text-text-warm">Mark R.</p>
+                <p class="text-sm text-silver">Lakewood, CO</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Testimonial Card -->
+          <div class="bg-muted rounded-2xl shadow-lg p-6 flex flex-col space-y-4 hover:shadow-2xl transition-shadow duration-500">
+            <p class="text-text-warm italic">"Highly recommend! Mark's attention to detail and commitment made buying our first home a truly amazing experience."</p>
+            <div class="flex items-center gap-4 mt-auto">
+              <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Client Photo" class="w-12 h-12 rounded-full object-cover">
+              <div>
+                <p class="font-semibold text-text-warm">Emily S.</p>
+                <p class="text-sm text-silver">Arvada, CO</p>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
 
 
 <footer class="bg-gray-900 text-white w-full">
